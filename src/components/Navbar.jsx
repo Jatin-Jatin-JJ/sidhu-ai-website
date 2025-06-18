@@ -1,61 +1,45 @@
 // src/components/Navbar.jsx
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // run on mount too
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Logic: use dark text on light pages (Listings/Contact), unless scrolling
-  const isLightPage = location.pathname !== '/' || scrolled;
+  const linkClass = (path) =>
+    `px-4 py-2 rounded transition ${
+      location.pathname === path ? "text-red-600 font-bold" : "text-gray-700"
+    } hover:text-red-500`;
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition duration-300 ${
-        isLightPage ? 'bg-white shadow-md' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link to="/" className={`font-bold text-lg tracking-wide ${isLightPage ? 'text-gray-900' : 'text-white'}`}>
+    <nav className="bg-white shadow-md fixed w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <Link to="/" className="text-xl font-bold text-gray-900">
           THE SIDHU TEAM
         </Link>
-        <nav className="space-x-6">
-          {['/', '/listings', '/contact'].map((path, i) => {
-            const name = path === '/' ? 'Home' : path.slice(1).charAt(0).toUpperCase() + path.slice(2);
-            const isActive = location.pathname === path;
 
-            return (
-              <Link
-                key={i}
-                to={path}
-                className={`transition duration-200 ${
-                  isLightPage
-                    ? isActive
-                      ? 'text-red-500 font-semibold'
-                      : 'text-gray-700 hover:text-red-500'
-                    : isActive
-                    ? 'text-red-400'
-                    : 'text-white hover:text-red-400'
-                }`}
-              >
-                {name}
-              </Link>
-            );
-          })}
-        </nav>
+        <div className="md:hidden">
+          <button onClick={toggleMenu}>
+            {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          </button>
+        </div>
+
+        <div className={`md:flex md:items-center ${isOpen ? "block" : "hidden"}`}>
+          <Link to="/" className={linkClass("/")}>
+            Home
+          </Link>
+          <Link to="/listings" className={linkClass("/listings")}>
+            Listings
+          </Link>
+          <Link to="/contact" className={linkClass("/contact")}>
+            Contact
+          </Link>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
