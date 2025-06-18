@@ -1,16 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Listings from './pages/Listings';
-import Contact from './pages/Contact';
+// App.js
+import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Listings from "./pages/Listings";
+import Contact from "./pages/Contact";
 
 function App() {
-  console.log("✅ App loaded");
-
   return (
     <Router>
-      <div className="bg-white min-h-screen">
+      <div className="bg-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
