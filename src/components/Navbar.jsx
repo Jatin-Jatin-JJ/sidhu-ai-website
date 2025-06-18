@@ -1,42 +1,22 @@
-// src/components/Navbar.jsx
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+// ✅ NAVBAR.JSX — Replace this file completely
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   const linkClass = (path) =>
-    `px-4 py-2 rounded transition ${
-      location.pathname === path ? "text-red-600 font-bold" : "text-gray-700"
-    } hover:text-red-500`;
+    location.pathname === path
+      ? 'text-red-500 font-semibold'
+      : 'text-gray-700 hover:text-red-500';
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-80 backdrop-blur shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-gray-900">
-          THE SIDHU TEAM
-        </Link>
-
-        <div className="md:hidden">
-          <button onClick={toggleMenu}>
-            {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-          </button>
-        </div>
-
-        <div className={`md:flex md:items-center ${isOpen ? "block" : "hidden"}`}>
-          <Link to="/" className={linkClass("/")}>
-            Home
-          </Link>
-          <Link to="/listings" className={linkClass("/listings")}>
-            Listings
-          </Link>
-          <Link to="/contact" className={linkClass("/contact")}>
-            Contact
-          </Link>
+        <div className="text-xl font-bold">THE SIDHU TEAM</div>
+        <div className="flex space-x-6 text-sm md:text-base">
+          <Link to="/" className={linkClass('/')}>Home</Link>
+          <Link to="/listings" className={linkClass('/listings')}>Listings</Link>
+          <Link to="/contact" className={linkClass('/contact')}>Contact</Link>
         </div>
       </div>
     </nav>
