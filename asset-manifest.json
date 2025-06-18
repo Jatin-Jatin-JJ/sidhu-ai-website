@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sidhu-ai-website/static/css/main.56729ef5.css",
+    "main.js": "/sidhu-ai-website/static/js/main.2dccc080.js",
+    "index.html": "/sidhu-ai-website/index.html",
+    "main.56729ef5.css.map": "/sidhu-ai-website/static/css/main.56729ef5.css.map",
+    "main.2dccc080.js.map": "/sidhu-ai-website/static/js/main.2dccc080.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56729ef5.css",
+    "static/js/main.2dccc080.js"
+  ]
+}
