@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sidhu-ai-website/static/css/main.c66a2426.css",
-    "main.js": "/sidhu-ai-website/static/js/main.6544a858.js",
+    "main.css": "/sidhu-ai-website/static/css/main.2c034e80.css",
+    "main.js": "/sidhu-ai-website/static/js/main.015c401c.js",
     "index.html": "/sidhu-ai-website/index.html",
-    "main.c66a2426.css.map": "/sidhu-ai-website/static/css/main.c66a2426.css.map",
-    "main.6544a858.js.map": "/sidhu-ai-website/static/js/main.6544a858.js.map"
+    "main.2c034e80.css.map": "/sidhu-ai-website/static/css/main.2c034e80.css.map",
+    "main.015c401c.js.map": "/sidhu-ai-website/static/js/main.015c401c.js.map"
   },
   "entrypoints": [
-    "static/css/main.c66a2426.css",
-    "static/js/main.6544a858.js"
+    "static/css/main.2c034e80.css",
+    "static/js/main.015c401c.js"
   ]
 }
